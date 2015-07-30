@@ -1,4 +1,4 @@
-# HQuery
+# Chronicle
 
 A REST API for fetching historical data, based on the
 large, Wikipedia-sourced [historic-events] dataset,
@@ -20,9 +20,9 @@ $ python launch.py
 | `/api/<id>`      |**GET** | Return the row that matches the **id**. |
 | `/`              |**GET** | Return the (static?) index page. |
 
-Note that because HQuery uses Flask-Restless under the
-hood, the `<json>` query is not the typical MongoDB
-syntax. You may refer to the [query syntax] here.
+Note that because Chronicle uses Flask-Restless under the
+hood, the `<json>` query is not the typical MongoDB syntax.
+You may refer to the [query syntax] here.
 
 ### Schema
 

@@ -1,12 +1,12 @@
 #!/bin/sh
 
-if [ -f 'hquery/history.db' ]
+if [ -f 'chronicle/history.db' ]
 then
-    rm hquery/history.db
+    rm chronicle/history.db
 fi
 
-cat 'historic_events/historic_events.tsv' \
+cat 'chronicle/historic_events.tsv' \
  | python pipeline/jsonify.py \
  | python pipeline/store.py
 
-mv history.db hquery/history.db
+mv history.db chronicle/history.db

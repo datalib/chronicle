@@ -1,5 +1,5 @@
 from schema import Schema, Optional, And
-from hquery.app import db
+from chronicle.app import db
 
 
 class Event(db.Model):

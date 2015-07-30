@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///history.db'
 db = SQLAlchemy(app)
 
 
-from hquery.models import Event
+from chronicle.models import Event
 
 manager = APIManager(app, flask_sqlalchemy_db=db)
 manager.create_api(

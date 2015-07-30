@@ -16,7 +16,7 @@ $ python launch.py
 
 | Endpoint         | Method | Description |
 |-----------------:|:------:|:------------|
-| `/api/q?=<json>` |**GET**| Given a posted JSON query, respond with an array of events. |
+| `/api/q?=<json>` |**GET** | Given a JSON query, respond with an array of events. |
 | `/api/<id>`      |**GET** | Return the row that matches the **id**. |
 | `/`              |**GET** | Return the (static?) index page. |
 

@@ -60,9 +60,16 @@ def main():
     conn.execute(CREATE_TABLE)
     with conn:
         with open('historic_events/historic_events.tsv') as handle:
-            reader = csv.reader(handle,  delimiter='\t', quoting=csv.QUOTE_NONE)
+            reader = csv.reader(
+                handle,
+                delimiter='\t',
+                quoting=csv.QUOTE_NONE,
+                )
             for row_id, row in enumerate(reader, 1):
-                conn.execute(INSERT_TEMPLATE, [row_id] + parse_row(row))
+                conn.execute(
+                    INSERT_TEMPLATE,
+                    [row_id] + parse_row(row),
+                    )
         conn.commit()
 
 if __name__ == '__main__':

@@ -38,7 +38,7 @@ pipeline is not smart enough to extract it yet.
 ```sh
 $ pip install -r requirements.txt
 $ ./mkindex
-$ python launch.py
+$ gunicorn chronicle.app:app
 ```
 
 [historic-events]: https://github.com/tuvalie/historic_events

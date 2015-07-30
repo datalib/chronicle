@@ -12,7 +12,9 @@ made with the [Flask] framework and [Flask-Restless].
 
 Note that because Chronicle uses Flask-Restless under the
 hood, the `<json>` query is not the typical MongoDB syntax.
-You may refer to the [query syntax] here.
+You may refer to the [query syntax] here. You might also
+want to read up on the [request and responses] documentation
+for an idea of how to better use the API.
 
 ### Schema
 
@@ -43,3 +45,4 @@ $ python launch.py
 [Flask]: https://flask.pocoo.org
 [Flask-Restless]: flask-restless.readthedocs.org/en/latest/
 [query syntax]: http://flask-restless.readthedocs.org/en/latest/searchformat.html
+[request and responses]: http://flask-restless.readthedocs.org/en/latest/requestformat.html

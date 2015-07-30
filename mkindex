@@ -5,7 +5,7 @@ then
     rm chronicle/history.db
 fi
 
-cat 'chronicle/historic_events.tsv' \
+cat 'historic_events/historic_events.tsv' \
  | python pipeline/jsonify.py \
  | python pipeline/store.py
 

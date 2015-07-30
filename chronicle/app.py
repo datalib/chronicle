@@ -1,3 +1,6 @@
+from time import time
+from email.utils import formatdate
+
 from flask import Flask, redirect
 from flask.ext.restless import APIManager
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -11,6 +14,13 @@ db = SQLAlchemy(app)
 @app.route('/')
 def index():
     return redirect('/static/index.html')
+
+
+@app.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 's-maxage=86400, max-age=86400'
+    response.headers['Expires'] = formatdate(time() + 86400)
+    return response
 
 
 from chronicle.models import Event

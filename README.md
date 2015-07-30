@@ -8,32 +8,39 @@ made with the Flask framework.
 
 | Endpoint   | Method | Description |
 |-----------:|:------:|:------------|
-| `/v/query` |**POST**| Given a posted JSON query, respond with an array of rows. |
+| `/v/query` |**POST**| Given a posted JSON query, respond with an array of events. |
 | `/v/<id>`  |**GET** | Return the row that matches the **id**. |
 | `/v/`      |**GET** | Return the (static?) index page. |
 
-### Row Schema
 
-```
-{
-  "year": <integer>,
-  "type": ["general" | "birth" | "death"],
-  "date": [{"month": <integer>, "day": <integer>} | null],
-  "desc": <string>
-}
-```
+### Schema
 
-### Query Schema
+Let `<date>` be an Object of:
 
-```js
-{
-  "year": [start, end],  // inclusive
-  "type": [t1, t2, ...],
-  "date": [
-    {"month": Number, "day": Number}, // start inclusive
-    {"month": Number, "day": Number}, // end inclusive
-  ]
-}
-```
+    {
+      "year":  <int>,
+      "month": [<int> | null],
+      "day":   [<int> | null]
+    }
+
+The `month` and `day` keys can be null because some
+events have unknown dates; then we can define the
+**Event Schema**, which is the schema for each event
+object returned.
+
+    {
+      "type": ["general" | "birth" | "death"],
+      "desc": <string>,
+      "date": <date>
+    }
+
+The **Query Schema**:
+
+    {
+      "type": [<string>...],
+      "desc": <regex>,
+      "start": <date>,
+      "end": <date>
+    }
 
 [historic-events]: https://github.com/tuvalie/historic_events

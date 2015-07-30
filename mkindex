@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -f 'history.db' ]
+then
+    rm history.db
+fi
+
+cat 'historic_events/historic_events.tsv' \
+ | python pipeline/jsonify.py \
+ | python pipeline/store.py

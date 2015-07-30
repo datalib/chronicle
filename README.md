@@ -14,11 +14,11 @@ $ python launch.py
 
 ### Endpoints
 
-| Endpoint         | Method | Description |
-|-----------------:|:------:|:------------|
-| `/api/q?=<json>` |**GET** | Given a JSON query, respond with an array of events. |
-| `/api/<id>`      |**GET** | Return the row that matches the **id**. |
-| `/`              |**GET** | Return the (static?) index page. |
+| Endpoint               | Method | Description |
+|-----------------------:|:------:|:------------|
+| `/api/event?q=<json>`  |**GET** | Given a JSON query, respond with an array of events. |
+| `/api/event/<id>`      |**GET** | Return the row that matches the **id**. |
+| `/`                    |**GET** | Return the (static?) index page. |
 
 Note that because Chronicle uses Flask-Restless under the
 hood, the `<json>` query is not the typical MongoDB syntax.

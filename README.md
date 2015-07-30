@@ -7,6 +7,7 @@ made with the [Flask] framework and [Flask-Restless].
 ### Running
 
 ```sh
+$ pip install -r requirements.txt
 $ ./mkindex
 $ python launch.py
 ```

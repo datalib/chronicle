@@ -5,7 +5,7 @@ from datetime import date
 
 
 CREATE_TABLE = '''
-CREATE TABLE IF NOT EXISTS history (
+CREATE TABLE event (
     id    INTEGER PRIMARY KEY,
     desc  TEXT,
     type  TEXT,
@@ -31,7 +31,7 @@ def main():
                 datum['date']['day'],
             ]
             conn.execute(
-                'INSERT INTO history VALUES (?,?,?,?,?,?)',
+                'INSERT INTO event VALUES (?,?,?,?,?,?)',
                 row
                 )
         conn.commit()

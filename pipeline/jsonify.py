@@ -43,7 +43,7 @@ def parse_row(row):
                  'month': month,
                  'day': day},
         'type': type_,
-        'desc': text.decode('utf-8'),
+        'desc': text,
         }
 
 

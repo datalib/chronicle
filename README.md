@@ -2,45 +2,45 @@
 
 A REST API for fetching historical data, based on the
 large, Wikipedia-sourced [historic-events] dataset,
-made with the Flask framework.
+made with the [Flask] framework and [Flask-Restless].
+
+### Running
+
+```sh
+$ ./mkindex
+$ python launch.py
+```
 
 ### Endpoints
 
-| Endpoint   | Method | Description |
-|-----------:|:------:|:------------|
-| `/v/query` |**POST**| Given a posted JSON query, respond with an array of events. |
-| `/v/<id>`  |**GET** | Return the row that matches the **id**. |
-| `/v/`      |**GET** | Return the (static?) index page. |
+| Endpoint         | Method | Description |
+|-----------------:|:------:|:------------|
+| `/api/q?=<json>` |**GET**| Given a posted JSON query, respond with an array of events. |
+| `/api/<id>`      |**GET** | Return the row that matches the **id**. |
+| `/`              |**GET** | Return the (static?) index page. |
 
+Note that because HQuery uses Flask-Restless under the
+hood, the `<json>` query is not the typical MongoDB
+syntax. You may refer to the [query syntax] here.
 
 ### Schema
 
-Let `<date>` be an Object of:
-
     {
-      "year":  <int>,
-      "month": [<int> | null],
-      "day":   [<int> | null]
-    }
-
-The `month` and `day` keys can be null because some
-events have unknown dates; then we can define the
-**Event Schema**, which is the schema for each event
-object returned.
-
-    {
+      "id": <int>,
       "type": ["general" | "birth" | "death"],
       "desc": <string>,
-      "date": <date>
+      "date": {
+        "year":  <int>,
+        "month": [<int> | null],
+        "day":   [<int> | null]
+      }
     }
 
-The **Query Schema**:
-
-    {
-      "type": [<string>...],
-      "desc": <regex>,
-      "start": <date>,
-      "end": <date>
-    }
+Sometimes the month/date fields can be null, this is
+either because they are not available or the current
+pipeline is not smart enough to extract it yet.
 
 [historic-events]: https://github.com/tuvalie/historic_events
+[Flask]: https://flask.pocoo.org
+[Flask-Restless]: flask-restless.readthedocs.org/en/latest/
+[query syntax]: http://flask-restless.readthedocs.org/en/latest/searchformat.html

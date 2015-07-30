@@ -25,8 +25,6 @@ TYPE_INDEX = {
 
 
 def parse_row(row):
-    if len(row) == 3:
-        row.insert(1, "1")
     year, type_, date_info, text = row
     type_ = TYPE_INDEX[int(type_)]
     month = None

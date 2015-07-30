@@ -4,16 +4,6 @@ A REST API for fetching historical data, based on the
 large, Wikipedia-sourced [historic-events] dataset,
 made with the [Flask] framework and [Flask-Restless].
 
-### Running
-
-```sh
-$ pip install -r requirements.txt
-$ ./mkindex
-$ python launch.py
-```
-
-### Endpoints
-
 | Endpoint               | Method | Description |
 |-----------------------:|:------:|:------------|
 | `/api/event?q=<json>`  |**GET** | Given a JSON query, respond with an array of events. |
@@ -40,6 +30,14 @@ You may refer to the [query syntax] here.
 Sometimes the month/date fields can be null, this is
 either because they are not available or the current
 pipeline is not smart enough to extract it yet.
+
+### Running
+
+```sh
+$ pip install -r requirements.txt
+$ ./mkindex
+$ python launch.py
+```
 
 [historic-events]: https://github.com/tuvalie/historic_events
 [Flask]: https://flask.pocoo.org

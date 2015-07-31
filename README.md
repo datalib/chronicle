@@ -42,6 +42,8 @@ pipeline is not smart enough to extract it yet.
 ### Running
 
 ```sh
+$ git clone --recursive git@github.com:datalib/chronicle.git
+$ cd chronicle
 $ pip install -r requirements.txt
 $ ./mkindex
 $ gunicorn chronicle.app:app

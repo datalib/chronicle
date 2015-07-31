@@ -1,4 +1,3 @@
-from schema import Schema, Optional, And
 from chronicle.app import db
 
 

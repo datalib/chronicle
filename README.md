@@ -7,7 +7,8 @@ made with the [Flask] framework and [Flask-Restless].
 | Endpoint               | Method | Description |
 |-----------------------:|:------:|:------------|
 | `/api/event?q=<json>`  |**GET** | Given a JSON query, respond with an array of events. |
-| `/api/event/<id>`      |**GET** | Return the row that matches the **id**. |
+| `/api/event/<id>`      |**GET** | Return the event that matches the **id**. |
+| `/api/event`           |**GET** | Return all event objects. |
 | `/`                    |**GET** | Return the (static?) index page. |
 
 Note that because Chronicle uses Flask-Restless under the
@@ -17,6 +18,11 @@ want to read up on the [request and responses] documentation
 for an idea of how to better use the API.
 
 ### Schema
+
+Note that this is the schema for *one* event object.
+By default the endpoints return up to 30 events per
+page- you may want to check out the [pagination]
+format.
 
     {
       "id": <int>,
@@ -46,3 +52,4 @@ $ gunicorn chronicle.app:app
 [Flask-Restless]: flask-restless.readthedocs.org/en/latest/
 [query syntax]: http://flask-restless.readthedocs.org/en/latest/searchformat.html
 [request and responses]: http://flask-restless.readthedocs.org/en/latest/requestformat.html
+[pagination]: http://flask-restless.readthedocs.org/en/latest/requestformat.html#clientpagination

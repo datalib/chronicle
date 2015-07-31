@@ -36,4 +36,7 @@ manager.create_api(
     # want to have nested dates.
     exclude_columns=['year', 'month', 'day'],
     include_methods=['date'],
+    # Usually one would want to get >10
+    # results per page
+    results_per_page=30,
 )

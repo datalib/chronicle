@@ -49,6 +49,10 @@ $ ./mkindex
 $ gunicorn chronicle.app:app
 ```
 
+----------
+
+`historic-events` is © Nolan Hemmatazad / Wikimedia Commons / [CC-BY-SA-3.0](http://creativecommons.org/licenses/by-sa/3.0/)
+
 [historic-events]: https://github.com/tuvalie/historic_events
 [Flask]: https://flask.pocoo.org
 [Flask-Restless]: flask-restless.readthedocs.org/en/latest/
